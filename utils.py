@@ -46,3 +46,12 @@ def create_dictionaries(cleaned_text):
         index_to_word[index] = word
 
     return word_to_index, index_to_word
+
+def convert_text_to_indices(cleaned_text, word_to_index):
+    """
+       Convert text to integer form.
+    """
+
+    numerical_text = [word_to_index[word] for word in cleaned_text]
+
+    return numerical_text
