@@ -38,12 +38,12 @@ def create_dictionaries(cleaned_text):
        Create dictionaries to map words to indices and vice versa.
     """
 
-    word_to_index = dict()
-    index_to_word = dict()
+    word_to_index = {'<UNK>': 0}
+    index_to_word = {0: '<UNK>'}
 
     for index, word in enumerate(set(cleaned_text)):
-        word_to_index[word] = index
-        index_to_word[index] = word
+        word_to_index[word] = index + 1
+        index_to_word[index + 1] = word
 
     return word_to_index, index_to_word
 
