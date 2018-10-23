@@ -16,7 +16,7 @@ def get_raw_text():
         text = f.read()
 
     regex = re.compile(u"INSERT INTO content VALUES\(\d+,\'|\'\);|[^a-zA-Z_.0-9]")
-    text = re.sub(regex, ' ', text)
+    text = re.sub(regex, ' ', text).strip()
 
     """ Save cleaned parsed text for later use. """
     with open('data/parsed_text.txt', 'w+', encoding='utf-8') as f:
