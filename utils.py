@@ -1,6 +1,7 @@
 """ Helper functions for text processing. """
 
-import nltk.tokenize.punkt as punkt
+from nltk.tokenize import word_tokenize
+
 import re
 import string
 
@@ -25,10 +26,14 @@ def get_raw_text():
 
 def clean_and_tokenize_text(text):
     """
-       Convert all text to lowercase and tokenize at the sentence level.
+       Convert text to lowercase and tokenize at the word level.
     """
 
-    tokenizer = punkt.PunktSentenceTokenizer()
-    cleaned_text = tokenizer.tokenize(text.lower())
+    cleaned_text = word_tokenize(text.lower())
 
     return cleaned_text
+
+def create_dictionaries(cleaned_text):
+    """
+       Create dictionaries to map words to indices and vice versa.
+    """
